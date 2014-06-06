@@ -1,12 +1,14 @@
 /*
+PORT of Backbone.sync for Alloy 
+BY JOHN WRIGHT (WRIGHTLABS)
+https://github.com/wrightlabs/alloy.sync.restful
+
 Override this function to change the manner in which Backbone persists models to the server. 
 You will be passed the type of request, and the model in question. 
-By default, makes a RESTful Ajax request to the model's url(). Some possible customizations could be:
+By default, makes a RESTful http request (using Titanium.Network.HTTPClient) to the model's url().
 
-Use setTimeout to batch rapid-fire updates into a single request.
-Send up the models as XML instead of JSON.
-Persist models via WebSockets instead of Ajax.
 
+********* WARNING, THE FOLLOWING HAS NEVER BEEN TESTED IN ALLOY *************
 Turn on Backbone.emulateHTTP in order to send PUT and DELETE requests as POST, 
 with a _method parameter containing the true HTTP method, 
 as well as all requests with the body as application/x-www-form-urlencoded 
@@ -85,10 +87,12 @@ module.exports.sync = function(method, model, options) {
   // Prepare the connection.
   client.open(params.type, params.url);
    
+  // Make sure content type is set.
   if(params.contentType) {
       params.headers['Content-Type'] = params.contentType;
   }
-   
+  
+  // Set request headers found in params
   for (var header in params.headers) {
          client.setRequestHeader(header, params.headers[header]);
   }
