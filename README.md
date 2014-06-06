@@ -33,6 +33,8 @@ exports.definition = {
 
 From here you can extend your model as necessary, like a normal Backbone.js model.
 
+Refer to http://docs.appcelerator.com/titanium/latest/#!/guide/Alloy_Models for further usage on Alloy Models using Backbone.js
+
 ###Credits
 
 Thanks to @viezel for his work on https://github.com/viezel/napp.alloy.adapter.restapi (and other great code for Alloy). From his restapi code I found working code examples for using Titanium.Network.HTTPClient (http://docs.appcelerator.com/titanium/3.0/#!/api/Titanium.Network.HTTPClient).
