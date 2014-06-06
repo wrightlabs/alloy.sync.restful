@@ -39,4 +39,4 @@ Thanks to @viezel for his work on https://github.com/viezel/napp.alloy.adapter.r
 
 Thanks to @jashkenas for Backbone.js and the original Backbone.sync method code (http://docs.appcelerator.com/backbone/0.9.2/docs/backbone.html#section-162)
 
-Thanks to @appcelerator for all there work on Titanium and Alloy
+Thanks to @appcelerator for all their work on Titanium and Alloy
