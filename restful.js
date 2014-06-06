@@ -74,12 +74,12 @@ module.exports.sync = function(method, model, options) {
        
   client.onload = function() {
       options.success(JSON.parse(this.responseText), this.status);
-      Ti.API.debug('[restful sync adapter] model:' + model.url() +' response:' + this.responseText );
+      Ti.API.debug('[alloy.sync.restful] model:' + model.url() +' response:' + this.responseText );
   };
        
   client.onerror = function(e){
       options.error(model, e.error);
-      Ti.API.error('[restful sync adapter] ERROR model:' + model.url() +' message:' + e.error );
+      Ti.API.error('[alloy.sync.restful] ERROR model:' + model.url() +' message:' + e.error );
   };
    
   // Prepare the connection.
@@ -104,5 +104,5 @@ var getValue = function(object, prop) {
 
 //Throw an error when a URL is needed, and none is supplied.
 var urlError = function() {
-  Ti.API.error('[REST API] apiCall ERROR: ' + this.responseText);
+  Ti.API.error('[alloy.sync.restful] urlError: ' + this.responseText);
 };
