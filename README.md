@@ -7,7 +7,7 @@ This Appcelerator Titanium Alloy sync adapter is a straight port of the default 
 Add `restful.js` to `PROJECT_FOLDER/app/assets/alloy/sync/`. Create the folders if they dont exist. 
 
 Create your model file in the models folder. For example ...
-`PROJECT_FOLDER/app/models/users.js`.
+`PROJECT_FOLDER/app/models/books.js`.
 
 ```javascript
 exports.definition = {  
@@ -18,13 +18,13 @@ exports.definition = {
     },      
     extendModel: function(Model) {      
         _.extend(Model.prototype, {
-              urlRoot: 'http://example.com/api/users'
+              urlRoot: 'http://example.com/api/books'
             });
         return Model;
     }, 
     extendCollection: function(Collection) {        
         _.extend(Collection.prototype, {
-              url: 'http://example.com/api/users'
+              url: 'http://example.com/api/books'
         });
         return Collection;
     }       
