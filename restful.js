@@ -15,6 +15,7 @@ as well as all requests with the body as application/x-www-form-urlencoded
 instead of application/json with the model in a param named model. 
 Useful when interfacing with server-side languages like PHP 
 that make it difficult to read the body of PUT requests.
+*****************************************************************************
 */
 
 module.exports.sync = function(method, model, options) {
@@ -48,12 +49,13 @@ module.exports.sync = function(method, model, options) {
     params.data = JSON.stringify(model.toJSON());
   }
   
+  // HAS NOT BEEN TESTED IN ALLOY
   //For older servers, emulate JSON by encoding the request into an HTML-form.
   if (Alloy.Backbone.emulateJSON) {
     params.contentType = 'application/x-www-form-urlencoded';
     params.data = params.data ? {model: params.data} : {};
   }
-  
+  // HAS NOT BEEN TESTED IN ALLOY
   //For older servers, emulate HTTP by mimicking the HTTP method with _method And an X-HTTP-Method-Override header.
   if (Alloy.Backbone.emulateHTTP) {
     if (type === 'PUT' || type === 'DELETE') {
